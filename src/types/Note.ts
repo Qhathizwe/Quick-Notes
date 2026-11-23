@@ -2,7 +2,7 @@ export const NOTE_CATEGORIES = [
   "Work",
   "Study",
   "Personal",
-  "Ideas"
+  "Ideas",
 ] as const;
 
 export type NoteCategory = (typeof NOTE_CATEGORIES)[number];
@@ -14,5 +14,20 @@ export interface Note {
   content: string;
   category: NoteCategory;
   createdAt: string;
-  updatedAt: string;
+  updatedAt?: string;
+}
+
+export interface CreateNoteInput {
+  userId: string;
+  title: string;
+  content: string;
+  category: NoteCategory;
+}
+
+export interface UpdateNoteInput {
+  id: string;
+  userId: string;
+  title: string;
+  content: string;
+  category: NoteCategory;
 }
